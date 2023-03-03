@@ -14,7 +14,7 @@ const showData = (data) => {
    toolsDiv.classList.add('col')
    toolsDiv.innerHTML = `
    <div class="card h-100">
-   <img class="img-fluid" src="${singletool.image}" class="card-img-top" alt="...">
+   <img class="p-2 h-100" src="${singletool.image}" class="card-img-top" alt="...">
    <div class="card-body">
      <h5 class="card-title">Features</h5>
      <div>
@@ -24,8 +24,10 @@ const showData = (data) => {
      </div>
      <hr>
      <h5>${singletool.name}</h5>
-     <i class="fa-regular fa-calendar-days"></i>
-   
+     <div class="d-flex ">
+     <i class="fa-regular fa-calendar-days mt-1"></i>
+     <p class="mx-2">${singletool.published_in}</p>
+     </div>
    `
    toolsContainer.appendChild(toolsDiv)
 
