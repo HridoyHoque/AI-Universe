@@ -1,14 +1,24 @@
-const loadAItools = () => {
+const loadAItools = (datalimit) => {
    url = `https://openapi.programming-hero.com/api/ai/tools`
    fetch(url)
    .then(res => res.json())
-   .then(data => showData(data.data.tools))
+   .then(data => showData(data.data.tools , datalimit))
 }
 
-const showData = (data) => {
+const showData = (tools , datalimit) => {
    const toolsContainer = document.getElementById('tools-container')
    // console.log(tools)
-  data.forEach(singletool => {
+   toolsContainer.innerHTML = ''
+   /* Show 6 tools */
+   const seeMoreBtn = document.getElementById("btn-SeeMore")
+   if(datalimit && tools.length > 6){
+      tools = tools.slice(0,6)
+      seeMoreBtn.classList.remove('d-none')
+   }
+   else{
+      seeMoreBtn.classList.add('d-none')
+   }
+  tools.forEach(singletool => {
    console.log(singletool)
    const toolsDiv = document.createElement('div')
    toolsDiv.classList.add('col')
@@ -24,13 +34,22 @@ const showData = (data) => {
      </div>
      <hr>
      <h5>${singletool.name}</h5>
-     <div class="d-flex ">
+     <div class="d-flex">
      <i class="fa-regular fa-calendar-days mt-1"></i>
      <p class="mx-2">${singletool.published_in}</p>
+     <i class="fa-solid fa-circle-arrow-right ms-auto"></i>
      </div>
    `
    toolsContainer.appendChild(toolsDiv)
 
   });
 }
-loadAItools()
+
+/* Show All tools  */
+// const showall = (datalimit) => {
+//    loadAItools()
+// }
+document.getElementById('btn-SeeMore').addEventListener('click' , function(){
+   loadAItools()
+})
+// loadAItools()
