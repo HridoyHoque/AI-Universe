@@ -16,10 +16,14 @@ const showData = (data) => {
    <div class="card h-100">
    <img class="img-fluid" src="${singletool.image}" class="card-img-top" alt="...">
    <div class="card-body">
-     <h5 class="card-title">Card title</h5>
-     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+     <h5 class="card-title">Features</h5>
+     <div>
+     <p class="card-text p-0 m-0">1. ${singletool.features[0]}</p>
+     <p class="card-text p-0 m-0">2. ${singletool.features[1]}</p>
+     <p class="card-text p-0 m-0">3. ${singletool.features[2]}</p>
+     </div>
      <hr>
-     <h5>ChatGPT</h5>
+     <h5>${singletool.name}</h5>
      <i class="fa-regular fa-calendar-days"></i>
    
    `
