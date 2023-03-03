@@ -6,6 +6,7 @@ const loadAItools = (datalimit) => {
 }
 
 const showData = (tools , datalimit) => {
+   togglespinner(true)
    const toolsContainer = document.getElementById('tools-container')
    // console.log(tools)
    toolsContainer.innerHTML = ''
@@ -41,15 +42,26 @@ const showData = (tools , datalimit) => {
      </div>
    `
    toolsContainer.appendChild(toolsDiv)
-
+   /* Stop Loader Spinner */
+   togglespinner(false)
+  
   });
 }
 
-/* Show All tools  */
-// const showall = (datalimit) => {
-//    loadAItools()
-// }
+/* See more  */
 document.getElementById('btn-SeeMore').addEventListener('click' , function(){
    loadAItools()
 })
+
+/* Start Loader Spinner */
+
+const togglespinner = (isloading) => {
+const spinner = document.getElementById("spinner")
+   if(isloading){
+      spinner.classList.remove("d-none")
+   }
+   else{
+      spinner.classList.add("d-none")
+   }
+}
 // loadAItools()
