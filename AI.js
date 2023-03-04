@@ -149,4 +149,22 @@ const showToolsDetails = data => {
    }
 
 }
+
+// Short by date 
+
+document.getElementById("sort-bt-date").addEventListener('click' , function(){
+  
+   const sortByDate = async () => {
+
+      const url = `https://openapi.programming-hero.com/api/ai/tools`;
+      const res = await fetch(url)
+      const data = await res.json();
+      const sortData = data.data.tools;
+      sortData.sort((a, b) => new Date(a.published_in) - new Date(b.published_in));
+      showData(sortData)
+      
+   }
+
+   sortByDate()
+})
 // loadAItools()
