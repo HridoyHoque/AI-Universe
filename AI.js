@@ -9,8 +9,8 @@ const showData = (tools, datalimit) => {
    togglespinner(true)
    const toolsContainer = document.getElementById('tools-container')
    // console.log(tools)
-   toolsContainer.innerHTML = ''
-   /* Show 6 tools */
+   toolsContainer.innerHTML = '';
+   /* Show 6  AI tools */
    const seeMoreBtn = document.getElementById("btn-SeeMore")
    if (datalimit && tools.length > 6) {
       tools = tools.slice(0, 6)
@@ -41,14 +41,14 @@ const showData = (tools, datalimit) => {
      <i onclick="loadToolsDetails('${singletool.id}')" class="fa-solid fa-circle-arrow-right ms-auto" data-bs-toggle="modal" data-bs-toggle="modal" data-bs-target="#card-Modal"></i>
      </div>
    `
-      toolsContainer.appendChild(toolsDiv)
+      toolsContainer.appendChild(toolsDiv);
       /* Stop Loader Spinner */
-      togglespinner(false)
+      togglespinner(false);
 
    });
 }
 
-/* See more  */
+/* See more Btn */
 document.getElementById('btn-SeeMore').addEventListener('click', function () {
    loadAItools()
 })
@@ -114,7 +114,6 @@ const showToolsDetails = data => {
                 <li>${(data.integrations === null || data.integrations[0] === undefined) ? 'No data found' : data.integrations[0]}</li>
                 <li>${(data.integrations === null || data.integrations[1] === undefined) ? 'No data found' : data.integrations[1]}</li>
                 <li>${(data.integrations === null || data.integrations[2] === undefined) ? 'No data found' : data.integrations[2]}</li>
-	             <li>${(data.integrations === null || data.integrations[3] === undefined) ? 'No data found' : data.integrations[3]}</li>
             </div>
         </div>
     </div>
@@ -138,7 +137,7 @@ const showToolsDetails = data => {
   `
    modalContainer.appendChild(modalDiv)
 
-   /* Show and hide score button */
+   /* Show and hide score accuracy button */
 
    const scoreBtn = document.getElementById("score")
    if (data.accuracy.score === null) {
